@@ -1,0 +1,22 @@
+parameters:
+  - name: branch
+    displayName: Git Branch
+    type: string
+    default: 'main'
+  - name: agentvmImage
+    displayName: 'Agent VM Image'
+    type: string
+    default: 'ubuntu-latest'
+  - name: jdkVersion
+    displayName: 'Java Version'
+    type: string
+    default: '1.11'
+
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      goals: 'package'
+      publishJUnitResults: yes
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      jdkVersionOption: "${{ parameters.jdkVersion }}"

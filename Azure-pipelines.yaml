@@ -1,0 +1,14 @@
+---
+  pool:
+    name: 'Azure Pipelines'
+    vmImage: ubuntu-latest
+  
+  trigger:
+    - main
+  
+  extends:
+    template: ./templates/maven-build.yaml
+    parameters:
+      branch: 'main'
+      agentvmImage: 'ubuntu-22.04'
+      jdkVersion: '1.17'
