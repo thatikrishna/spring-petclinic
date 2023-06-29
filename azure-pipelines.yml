@@ -26,3 +26,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Artifact-sample'
     publishLocation: 'Container'
+
